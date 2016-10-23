@@ -3,35 +3,18 @@ module Main exposing (..)
 import Html exposing (Html, div, text)
 import Html.App
 
--- Model
-type alias Model =
-  String
+import Models exposing (Model, initialModel)
+import View exposing (view)
+import Messages exposing (Msg)
+import Update exposing (update)
 
+
+-- Init the app
 init: ( Model, Cmd Msg )
-init = ( "Hellooo", Cmd.none )
+init = ( initialModel, Cmd.none )
 
-
--- MESSAGES
-
-type Msg
-    = NoOp
-
--- VIEW
-
-view: Model -> Html Msg
-view model =
-    div []
-        [ text model ]
-
--- UPDATE
-update: Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    case msg of
-        NoOp ->
-            ( model, Cmd.none )
 
 -- SUBSCRIPTIONS
-
 subscriptions: Model -> Sub Msg
 subscriptions model =
     Sub.none
