@@ -5,13 +5,15 @@ import Html.App
 
 import Models exposing (Model, initialModel)
 import View exposing (view)
-import Messages exposing (Msg)
+import Messages exposing (Msg(..))
 import Update exposing (update)
+import Players.Commands exposing (fetchAll)
 
 
 -- Init the app
 init: ( Model, Cmd Msg )
-init = ( initialModel, Cmd.none )
+init = 
+    ( initialModel, Cmd.map PlayersMsg fetchAll )
 
 
 -- SUBSCRIPTIONS
